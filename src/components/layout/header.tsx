@@ -87,7 +87,13 @@ function Header() {
                     </div>
 
                     <Sheet>
-                        <SheetTrigger className="w-1/2 flex justify-end"
+                        
+                        {isAuthenticated && (
+                            <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                                <UserMenu />
+                            </div>
+                        )}
+                        <SheetTrigger className="flex justify-end"
                             data-aos="fade-left"
                             data-aos-delay="200"
                         >
@@ -100,6 +106,7 @@ function Header() {
                                     This is the navigation link section. Please select a page to navigate.
                                 </SheetDescription>
                             </SheetHeader>
+
                             <nav className="flex flex-col h-[350px] mt-10 justify-between items-center w-full">
                                 {navItems.map((item) => (
                                     <SheetClose asChild key={item.label}>
@@ -118,26 +125,26 @@ function Header() {
                             </nav>
 
 
-                             {/* Login Buttons */}
-                    {isAuthenticated ?
-                        <div className="mt-10 flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
-                            <UserMenu />
-                        </div>
-                        : (
-                            <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
-                                <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium"
-                                    data-aos="fade-right"
-                                    data-aos-delay="200"
-                                    onClick={() => (router.push("/auth"))}
-                                >Login</button>
+                            {/* Login Buttons */}
+                            {isAuthenticated ?
+                                <div className="mt-10 flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                                    <h3 className="font-medium text-[16px]">Logged In</h3>
+                                </div>
+                                : (
+                                    <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                                        <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium"
+                                            data-aos="fade-right"
+                                            data-aos-delay="200"
+                                            onClick={() => (router.push("/auth"))}
+                                        >Login</button>
 
-                                <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap"
-                                    data-aos="fade-left"
-                                    data-aos-delay="200"
-                                    onClick={() => (router.push("/auth"))}
-                                >Sign Up</button>
-                            </div>
-                        )}
+                                        <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap"
+                                            data-aos="fade-left"
+                                            data-aos-delay="200"
+                                            onClick={() => (router.push("/auth"))}
+                                        >Sign Up</button>
+                                    </div>
+                                )}
                         </SheetContent>
                     </Sheet>
 
