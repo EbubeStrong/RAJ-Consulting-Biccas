@@ -19,7 +19,7 @@ function FeatureSection() {
         }
     };
     return (
-        <section className="overflow-hidden mt-10 md:mt-28 mb-20">
+        <section className="overflow-hidden pt-10 md:pt-28 pb-20 bg-[#FFFBFB]">
             <Container>
                 {/* Feature Heading */}
                 <div className="flex flex-col md:flex-row items-center justify-between mb-20">

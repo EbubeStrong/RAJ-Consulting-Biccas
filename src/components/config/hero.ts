@@ -14,7 +14,7 @@ import Grammarly from "../../../assets/grammarly.png"
 
 export  {default as HeroCenterBg} from "../../../assets/hero-center-bg.png";
 export {default as HeaderHeroLeftBg} from "../../../assets/header-hero-left-bg.png";
-export  {default as HeroRightBg} from "../../../assets/hero-right-bg.png";
+export  {default as HeaderHeroRightBg} from "../../../assets/header-hero-right-bg.png";
 export  {default as HeroImage} from "../../../assets/hero-image.png"
 export  {default as HeroVector} from "../../../assets/hero-vector.png"
 

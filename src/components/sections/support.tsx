@@ -53,7 +53,7 @@ const RatingsSection = () => {
 
 function SupportSection() {
     return (
-        <section className="bg-[#F9F8FE] md:mt-15 py-7">
+        <section className="bg-[#F9F8FE] md:pt-15 py-7">
             <Container className="flex flex-col md:flex-row gap-8 md:mt-2">
                 <div className="w-full max-w-[644px]">
                     <h2 className="text-center md:text-left font-inter font-semibold text-[20px] md:text-[30px] lg:text-[50px] text-[#191A15]"

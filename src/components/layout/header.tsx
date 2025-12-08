@@ -19,7 +19,8 @@ function Header() {
     }
 
     return (
-        <header className="w-full overflow-hidden py-5">
+        <header className="w-full overflow-hidden py-5 bg-[linear-gradient(to_right,#DBEFEB_0%,#DBEFEB_25%,#F2F1EF_45%,#F2F1EF_55%,#F2F1EF_75%,#F2F1EF_85%,#DBEFEB_90%,#DBEFEB_100%)]
+">
             <Container className="hidden md:block">
                 <div className="w-full flex justify-between items-center mx-auto px-0 overflow-hidden">
                     {/* Logo */}
