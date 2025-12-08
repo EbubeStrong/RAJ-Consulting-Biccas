@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { useAuth } from "./context/auth-context";
 
 export function ProfileCard() {
-  // 1. Get userDisplayName and updater from Context
+  // Getting userDisplayName and updater from Context
   const { user, loading, userDisplayName, updateUserDisplayName } = useAuth();
   
   const [tempName, setTempName] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
-  // Initialize name changes
+  // Initializing name changes
   useEffect(() => {
     setTempName(userDisplayName);
   }, [userDisplayName]);
@@ -40,7 +40,7 @@ export function ProfileCard() {
     setIsEditing(false);
   };
 
-  if (loading) return <Loader2 className="animate-spin" />;
+  if (loading) return <Loader2 className="animate-spin h-screen flex justify-center items-center" />;
   if (!user) return <div>Please log in</div>;
 
   return (
