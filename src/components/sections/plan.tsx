@@ -1,5 +1,4 @@
 "use client"
-
 import { Check } from "lucide-react";
 import { useState } from "react";
 import Container from "../layout/container";
@@ -88,7 +87,7 @@ const PricingSection = () => {
                         >
                             <ul className="space-y-4 mb-8 flex-1">
                                 {plan.features.map((feature, i) => (
-                                    <li key={i} className="flex w-full md:flex-col lg:flex-row lg:justify-start lg:items-start gap-3 items-center ">
+                                    <li key={i} className="px-4 flex w-full flex-col md:flex-col lg:flex-row lg:justify-start lg:items-start gap-3 items-center ">
                                         <div
                                             className={`rounded-full p-1 bg-[#54BD95] text-white `}
                                         >

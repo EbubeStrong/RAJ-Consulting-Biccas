@@ -13,6 +13,7 @@ const Footer = () => {
       <footer className="bg-[#161C28] text-white pt-16 pb-8">
         <Container>
           <div className="flex flex-col lg:flex-row justify-between gap-22 lg:gap-24 mb-16">
+            
             {/* Left Section: Brand & Newsletter */}
             <div className="lg:w-1/3 space-y-6">
               <h2 className="text-5xl font-bold text-[#54BD95]" data-aos="zoom-in"

@@ -69,6 +69,7 @@ function HeroSection() {
 
                             {/* hero buttons */}
                             <div className="mt-10 flex items-center justify-center min-[1061px]:justify-start">
+                                
                                 <button className="bg-[#54BD95] text-white font-medium font-inter text-[18px] rounded-4xl p-4 px-5 cursor-pointer"
                                     data-aos="zoom-in-up"
                                     data-aos-delay="300"

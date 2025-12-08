@@ -4,8 +4,20 @@ import Image from "next/image";
 import { featureAnalysis } from "../config/feature";
 import { Button } from "../ui/button";
 import Container from "../layout/container";
+import { useAuth } from "../context/auth-context";
+import { useRouter } from "next/navigation";
 
 function FeatureSection() {
+    const router = useRouter();
+    const { isAuthenticated } = useAuth();
+
+    const handleClick = () => {
+        if (isAuthenticated) {
+            router.push("/");
+        } else {
+            router.push("/auth"); 
+        }
+    };
     return (
         <section className="overflow-hidden mt-10 md:mt-28 mb-20">
             <Container>
@@ -25,7 +37,7 @@ function FeatureSection() {
                         data-aos="fade-up"
                         data-aos-delay="700"
                     >
-                        <Button className="bg-[#54BD95] text-white cursor-pointer w-[162px] rounded-4xl p-8 font-inter text-[18px] font-medium">Get Started</Button>
+                        <Button className="bg-[#54BD95] text-white cursor-pointer w-[162px] rounded-4xl p-8 font-inter text-[18px] font-medium" onClick={handleClick}>Get Started</Button>
                     </div>
                 </div>
 

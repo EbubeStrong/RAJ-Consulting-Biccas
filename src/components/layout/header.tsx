@@ -4,9 +4,15 @@ import { useState } from "react";
 import Container from "./container";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { navItems } from "../config/header";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/auth-context";
+import { UserMenu } from "../user-menu";
 
 function Header() {
     const [activeNav, setActiveNav] = useState("Home")
+    const router = useRouter();
+
+    const { isAuthenticated } = useAuth();
 
     function handleNavClick(label: string) {
         setActiveNav(label);
@@ -45,17 +51,25 @@ function Header() {
                     </nav>
 
                     {/* Login Buttons */}
-                    <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
-                        <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium"
-                            data-aos="fade-right"
-                            data-aos-delay="200"
-                        >Login</button>
+                    {isAuthenticated ?
+                        <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                            <UserMenu />
+                        </div>
+                        : (
+                            <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                                <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium"
+                                    data-aos="fade-right"
+                                    data-aos-delay="200"
+                                    onClick={() => (router.push("/auth"))}
+                                >Login</button>
 
-                        <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap"
-                            data-aos="fade-left"
-                            data-aos-delay="200"
-                        >Sign Up</button>
-                    </div>
+                                <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap"
+                                    data-aos="fade-left"
+                                    data-aos-delay="200"
+                                    onClick={() => (router.push("/auth"))}
+                                >Sign Up</button>
+                            </div>
+                        )}
                 </div>
             </Container>
 
@@ -103,12 +117,26 @@ function Header() {
                             </nav>
 
 
-                            {/* Login Buttons */}
-                            <div className="flex items-center gap-2 w-full justify-center mt-10">
-                                <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium">Login</button>
+                             {/* Login Buttons */}
+                    {isAuthenticated ?
+                        <div className="mt-5 flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                            <UserMenu />
+                        </div>
+                        : (
+                            <div className="flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                                <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium"
+                                    data-aos="fade-right"
+                                    data-aos-delay="200"
+                                    onClick={() => (router.push("/auth"))}
+                                >Login</button>
 
-                                <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap ">Sign Up</button>
+                                <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap"
+                                    data-aos="fade-left"
+                                    data-aos-delay="200"
+                                    onClick={() => (router.push("/auth"))}
+                                >Sign Up</button>
                             </div>
+                        )}
                         </SheetContent>
                     </Sheet>
 

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { AOSInit } from "@/components/aos";
+import { Toaster } from "sonner";
+import { AuthProvider } from "@/components/context/auth-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +18,7 @@ const geistMono = Geist_Mono({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-}); 
+});
 
 export const metadata: Metadata = {
   title: "Biccas - Landing Page",
@@ -33,8 +35,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-          <AOSInit />
-        {children}
+        <AOSInit />
+        <AuthProvider>{children}</AuthProvider>
+        <Toaster position="top-right" />
       </body>
     </html>
   );

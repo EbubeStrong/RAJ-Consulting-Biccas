@@ -37,7 +37,7 @@ function BenefitSection() {
                             data-aos-delay="300"
                         />
 
-                        {/* Floating Images and Icons */}
+                        {/* Benefits Images and Icons */}
                         {BenefitsImagesAndIcons.map((image, index) => (
                             <div key={index} className={image.className}>
                                 <Image
