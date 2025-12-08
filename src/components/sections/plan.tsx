@@ -43,7 +43,7 @@ const PricingSection = () => {
                 {plans.map((plan, index) => (
                     <div
                         key={index}
-                        className={`relative p-4 flex flex-col rounded-3xl transition-all duration-300 h-full ${plan.isPro
+                        className={`relative p-4 flex flex-col rounded-3xl transition-all duration-300 h-full my-14 md:my-0 ${plan.isPro
                             ? 'bg-[#54BD95] text-white shadow scale-105 z-10'
                             : 'bg-white text-black shadow-xl border border-gray-100 mt-5'
                             }`}
