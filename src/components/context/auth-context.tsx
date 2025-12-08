@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import api from '@/lib/axios';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
@@ -32,6 +32,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const router = useRouter();
 
+    const logout = useCallback(() => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        setUser(null);
+        setUserDisplayName("");
+        router.push('/');
+    }, [router]);
+
+    const isAuthenticated = !!user;
+
     // Load user on mount
     useEffect(() => {
         const checkAuth = async () => {
@@ -51,8 +61,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             }
             setLoading(false);
         };
+        
+        // Listen for auth errors from axios interceptor
+        const handleAuthError = (event: Event) => {
+            const customEvent = event as CustomEvent;
+            console.warn("Auth error:", customEvent.detail?.message);
+            logout();
+        };
+        
+        window.addEventListener("authError", handleAuthError);
         checkAuth();
-    }, []);
+        
+        return () => window.removeEventListener("authError", handleAuthError);
+    }, [logout]);
 
 
     // Function to update user display name
@@ -125,15 +146,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    const logout = () => {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('refresh_token');
-        setUser(null);
-        setUserDisplayName("");
-        router.push('/');
-    };
-
-    const isAuthenticated = !!user;
+   
 
     return (
         <AuthContext.Provider value={{ user, loading, isAuthenticated, login, register, logout, userDisplayName, updateUserDisplayName }}>
