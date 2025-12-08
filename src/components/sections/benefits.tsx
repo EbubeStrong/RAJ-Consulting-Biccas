@@ -1,48 +1,58 @@
 "use client"
 
 import Image from "next/image";
-import { BenefitItems } from "../config/benefits";
-import { FloatingImagesAndIcons, HeroImage } from "../config/hero";
+import { BenefitItems, BenefitsImagesAndIcons, HeroImage } from "../config/benefits";
+import Container from "../layout/container";
 
 function BenefitSection() {
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between mb-30 gap-10">
-            <div className="">
-                <h2 className="font-inter font-bold text-center md:text-left text-[20px] w-full max-w-[500px] md:text-[30px] lg:text-[50px]">What Benefit Will You Get</h2>
+        <section>
+            <Container className="flex flex-col md:flex-row items-center justify-between mt-30 mb-10 md:mb-30 gap-10">
+                <div>
+                    <h2 className="font-inter font-bold text-center md:text-left text-[20px] w-full max-w-[500px] md:text-[30px] lg:text-[50px]"
+                        data-aos="fade-right"
+                        data-aos-delay="400"
+                    >What Benefit Will You Get</h2>
 
-                {BenefitItems.map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-4 my-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width={32} height={32} viewBox="0 0 48 48"><defs><mask id="SVGIQLGgV2F"><g fill="none" strokeLinejoin="round" strokeWidth={4}><path fill="#fff" stroke="#fff" d="M24 44a19.94 19.94 0 0 0 14.142-5.858A19.94 19.94 0 0 0 44 24a19.94 19.94 0 0 0-5.858-14.142A19.94 19.94 0 0 0 24 4A19.94 19.94 0 0 0 9.858 9.858A19.94 19.94 0 0 0 4 24a19.94 19.94 0 0 0 5.858 14.142A19.94 19.94 0 0 0 24 44Z"></path><path stroke="#000" strokeLinecap="round" d="m16 24l6 6l12-12"></path></g></mask></defs><path fill="#6DD130" d="M0 0h48v48H0z" mask="url(#SVGIQLGgV2F)"></path></svg>
-                        <h4 className="font-inter font-medium text-[18px]"> {benefit.title}</h4>
-                    </div>
-                ))}
-            </div>
-
-            {/* Image Display */}
-            <div className="hidden md:block w-full mx-auto max-w-[501px]  min-[1061px]:max-w-[601px] h-[458px]">
-                <div className="relative h-full w-full lg:max-w-[450px] mx-auto">
-                    <Image
-                        src={HeroImage}
-                        alt="Hero Image"
-                        fill
-                        className="object-contain"
-                    />
-
-                    {/* Floating Images and Icons */}
-                    {FloatingImagesAndIcons.map((image, index) => (
-                        <div key={index} className={image.className}>
-                            <Image
-                                src={image.src}
-                                alt={image.alt}
-                                width={image.width}
-                                height={image.height}
-                            />
+                    {BenefitItems.map((benefit, index) => (
+                        <div key={index} className="flex items-center gap-4 my-8"
+                            data-aos="fade-right"
+                            data-aos-delay={400 + index * 200}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width={32} height={32} viewBox="0 0 48 48"><defs><mask id="SVGIQLGgV2F"><g fill="none" strokeLinejoin="round" strokeWidth={4}><path fill="#fff" stroke="#fff" d="M24 44a19.94 19.94 0 0 0 14.142-5.858A19.94 19.94 0 0 0 44 24a19.94 19.94 0 0 0-5.858-14.142A19.94 19.94 0 0 0 24 4A19.94 19.94 0 0 0 9.858 9.858A19.94 19.94 0 0 0 4 24a19.94 19.94 0 0 0 5.858 14.142A19.94 19.94 0 0 0 24 44Z"></path><path stroke="#000" strokeLinecap="round" d="m16 24l6 6l12-12"></path></g></mask></defs><path fill="#6DD130" d="M0 0h48v48H0z" mask="url(#SVGIQLGgV2F)"></path></svg>
+                            <h4 className="font-inter font-medium text-[18px]"> {benefit.title}</h4>
                         </div>
                     ))}
                 </div>
 
+                {/* Image Display */}
+                <div className="hidden md:block w-full md:max-w-[330px] md:h-full lg:max-w-[501px] md:w-full h-[458px]">
+                    <div className="relative h-full w-full lg:max-w-[450px] mx-auto">
+                        <Image
+                            src={HeroImage}
+                            alt="Hero Image"
+                            width={400}
+                            className="object-contain"
+                            data-aos="flip-left"
+                            data-aos-delay="300"
+                        />
 
-            </div>
+                        {/* Floating Images and Icons */}
+                        {BenefitsImagesAndIcons.map((image, index) => (
+                            <div key={index} className={image.className}>
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    width={image.width}
+                                    height={image.height}
+                                    data-aos="fade-up-left"
+                                    data-aos-delay={450 + index * 200}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Container>
         </section>
     );
 }
