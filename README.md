@@ -1,6 +1,6 @@
 ﻿# Raj Consulting - Next.js Application
 
-A modern, full-stack web application built with **Next.js 16**, featuring authentication, user profiles, and responsive UI.
+A modern web application built with **Next.js 16**, featuring authentication, user profiles, and responsive UI.
 
 ##  Technology Stack
 
