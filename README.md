@@ -89,7 +89,7 @@ src/
 Create \.env.local\:
 
 `\env
-NEXT_PUBLIC_BASE_URL=http://localhost:3001/api
+NEXT_PUBLIC_BASE_URL=https://fakeapi.platzi.com/en/rest/auth-jwt/
 `\
 
 ##  Installation
@@ -99,7 +99,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3001/api
 npm install
 
 # Set environment variables
-echo "NEXT_PUBLIC_BASE_URL=http://localhost:3001/api" > .env.local
+echo "NEXT_PUBLIC_BASE_URL=https://fakeapi.platzi.com/en/rest/auth-jwt/" > .env.local
 
 # Run development server
 npm run dev
@@ -116,13 +116,13 @@ npm start
 
 ##  Key Components
 
-### Auth Context (\uth-context.tsx\)
+### Auth Context (\auth-context.tsx\)
 - Global auth state management
 - login(), register(), logout() functions
 - Profile fetching
 - Error handling
 
-### Axios Config (\xios.ts\)
+### Axios Config (\axios.ts\)
 - Base URL setup
 - Request interceptor (token attachment)
 - Response interceptor (401 handling)
