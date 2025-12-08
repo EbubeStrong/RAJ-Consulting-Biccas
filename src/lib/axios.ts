@@ -32,9 +32,8 @@ api.interceptors.response.use(
         if (!refreshToken) {
           localStorage.removeItem("access_token");
           localStorage.removeItem("refresh_token");
-          if (typeof window !== "undefined") {
-            window.location.href = "/auth/login";
-          }
+
+          // Do not navigate to /auth/login, just reject
           return Promise.reject(error);
         }
 
@@ -52,9 +51,8 @@ api.interceptors.response.use(
       } catch (refreshError) {
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
-        if (typeof window !== "undefined") {
-          window.location.href = "/auth/login";
-        }
+        
+        // Do not navigate to /auth/login, just reject
         return Promise.reject(refreshError);
       }
     }

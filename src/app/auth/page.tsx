@@ -1,10 +1,10 @@
-"use client"
+import { Suspense } from "react";
+import AuthLayout from "@/components/auth/auth-layout"; 
 
-import AuthLayout from "@/components/auth/auth-layout";
-function AuthPage() {
-    return (
-        <AuthLayout />
-    );
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+      <AuthLayout />
+    </Suspense>
+  );
 }
-
-export default AuthPage;
