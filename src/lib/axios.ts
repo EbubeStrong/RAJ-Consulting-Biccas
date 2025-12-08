@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-console.log("API Base URL:", BASE_URL);
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -52,7 +51,10 @@ api.interceptors.response.use(
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
         
-        // Do not navigate to /auth/login, just reject
+        // Dispatch event to notify UI of auth failure
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new CustomEvent("authError", { detail: { message: "Session expired. Please login again." } }));
+        }
         return Promise.reject(refreshError);
       }
     }
