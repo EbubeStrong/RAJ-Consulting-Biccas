@@ -6,14 +6,14 @@ import Container from "../layout/container";
 
 const HeroTeamsLogo = () => {
     return (
-        <section className="flex flex-col items-center w-full mx-auto gap-7 pt-12 pb-15 bg-[linear-gradient(to_right,#DEF1EE_0%,#DEF1EE_5%,#F2F1EF_45%,#F2F1EF_55%,#DBEFEB_85%,#DBEFEB_90%,#DBEFEB_100%)]">
+        <section className="flex flex-col items-center w-full mx-auto gap-7 md:pt-12 pb-15 bg-[linear-gradient(to_right,#DEF1EE_0%,#DEF1EE_5%,#F2F1EF_45%,#F2F1EF_55%,#DBEFEB_85%,#DBEFEB_90%,#DBEFEB_100%)]">
             <Container>
                 <h2 className="text-[#191A15] font-inter font-bold text-[20px] md:text-[40px] text-center"
                     data-aos="fade-up"
                     data-aos-delay="400"
                 >More than 25,000 teams use Collabs</h2>
 
-                <div className="w-full overflow-hidden mt-10">
+                <div className="w-full overflow-hidden md:mt-10">
                     <div className="flex gap-13 w-max animate-marquee-mobile md:animate-none">
 
                         {[...Logos, ...Logos].map((logo, index) => (

@@ -61,13 +61,13 @@ function Header() {
                                 <button className="w-1/3 cursor-pointer text-[#A6A6A6] bg-transparent rounded-lg p-2 text-[16px] font-inter font-medium"
                                     data-aos="fade-right"
                                     data-aos-delay="200"
-                                    onClick={() => (router.push("/auth"))}
+                                    onClick={() => (router.push("/auth?tab=login"))}
                                 >Login</button>
 
                                 <button className="lg:w-1/3 cursor-pointer bg-[#54BD95] text-white rounded-2xl p-2 text-[16px] font-inter font-medium whitespace-nowrap"
                                     data-aos="fade-left"
                                     data-aos-delay="200"
-                                    onClick={() => (router.push("/auth"))}
+                                    onClick={() => (router.push("/auth?tab=register"))}
                                 >Sign Up</button>
                             </div>
                         )}
@@ -93,7 +93,7 @@ function Header() {
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} viewBox="0 0 20 20" className="cursor-pointer"><path fill="currentColor" fillRule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m6 5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1" clipRule="evenodd"></path></svg>
                         </SheetTrigger>
-                        <SheetContent className="w-[400px] sm:w-[540px]">
+                        <SheetContent className="w-[400px] sm:w-[540px]  bg-[linear-gradient(to_right,#DBEFEB_0%,#DBEFEB_25%,#DBEFEB_45%,#F9FCFB_55%,#F9FCFB_65%,#DBEFEB_75%,#DBEFEB_90%,#DBEFEB_100%)]">
                             <SheetHeader>
                                 <SheetTitle className="sr-only">Nav Link</SheetTitle>
                                 <SheetDescription className="sr-only">
@@ -120,7 +120,7 @@ function Header() {
 
                              {/* Login Buttons */}
                     {isAuthenticated ?
-                        <div className="mt-5 flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
+                        <div className="mt-10 flex items-center gap-2 w-full md:w-1/2 justify-end max-[989px]:justify-center">
                             <UserMenu />
                         </div>
                         : (
