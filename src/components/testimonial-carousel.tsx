@@ -34,10 +34,10 @@ const TestimonialCarousel = () => {
                 <Image src={Quote} alt="Quote Icon" width={48} height={48} className="rotate-180" />
             </div>
 
-            {/* Quote Text - Added key for animation reset on change */}
+            {/* Quote Text */}
             <div key={activeIndex} className="animate-in fade-in slide-in-from-right-4 duration-500">
                 <blockquote className="text-gray-300 text-lg leading-relaxed min-h-[120px]">
-                    &quot;{currentData.quote}&quot;
+                    {currentData.quote}
                 </blockquote>
 
                 <div className="mt-4">
