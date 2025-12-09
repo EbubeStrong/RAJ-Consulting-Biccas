@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image";
 import { featureAnalysis } from "../config/feature";
 import { Button } from "../ui/button";

@@ -1,12 +1,11 @@
 "use client"
-
 import Image from "next/image";
 import { BenefitItems, BenefitsImagesAndIcons, HeroImage } from "../config/benefits";
 import Container from "../layout/container";
 
 function BenefitSection() {
     return (
-        <section className="bg-[linear-gradient(to_right,#FFFFFF_45%,#FFFFFF_55%,#DBEFEB_85%,#DBEFEB_95%,#DBEFEB_100%)] pt-30 pb-10 md:pb-30">
+        <section className="bg-[linear-gradient(to_right,#FFFFFF_45%,#FFFFFF_55%,#DBEFEB_85%,#DBEFEB_95%,#DBEFEB_100%)] pt-30 pb-10 md:pb-20">
             <Container className="flex flex-col md:flex-row items-center justify-between gap-10">
                 <div>
                     <h2 className="font-inter font-bold text-center md:text-left text-[20px] w-full max-w-[500px] md:text-[30px] lg:text-[50px]"

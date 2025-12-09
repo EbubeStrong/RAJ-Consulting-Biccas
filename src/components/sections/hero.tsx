@@ -132,7 +132,6 @@ function HeroSection() {
                     </div>
                 </Container>
             </section>
-
             <HeroTeamsLogo />
         </>
     );

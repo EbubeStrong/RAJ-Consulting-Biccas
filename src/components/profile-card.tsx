@@ -12,7 +12,7 @@ import { useAuth } from "./context/auth-context";
 export function ProfileCard() {
   // Getting userDisplayName and updater from Context
   const { user, loading, userDisplayName, updateUserDisplayName } = useAuth();
-  
+
   const [tempName, setTempName] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
@@ -29,18 +29,22 @@ export function ProfileCard() {
 
     // Calling the Context function
     updateUserDisplayName(tempName);
-    
+
     setIsEditing(false);
     toast.success("Profile name updated successfully!");
   };
 
   // Cancel editing and revert changes
   const handleCancel = () => {
-    setTempName(userDisplayName); 
+    setTempName(userDisplayName);
     setIsEditing(false);
   };
 
-  if (loading) return <Loader2 className="animate-spin h-screen flex justify-center items-center" />;
+  if (loading) return (
+    <div className="h-[400px] flex justify-center items-center">
+      < Loader2 className = "animate-spin " />
+  </div >
+  );
   if (!user) return <div>Please log in</div>;
 
   return (
@@ -71,7 +75,7 @@ export function ProfileCard() {
             <Label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
               <UserIcon className="w-4 h-4" /> Full Name
             </Label>
-            
+
             {!isEditing && (
               <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)} className="text-primary h-8 px-2">
                 <Edit2 className="w-3.5 h-3.5 mr-1.5" /> Edit
@@ -101,16 +105,16 @@ export function ProfileCard() {
             </div>
           )}
         </div>
-        
+
         {/* Email Field remains the same... */}
-         <div className="space-y-3">
-            <Label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-              <Mail className="w-4 h-4" /> Email Address
-            </Label>
-            <div className="p-3 bg-muted/50 rounded-md border border-border/50 text-muted-foreground flex justify-between items-center cursor-not-allowed">
-              <span>{user.email}</span>
-              <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">Read-only</span>
-            </div>
+        <div className="space-y-3">
+          <Label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+            <Mail className="w-4 h-4" /> Email Address
+          </Label>
+          <div className="p-3 bg-muted/50 rounded-md border border-border/50 text-muted-foreground flex justify-between items-center cursor-not-allowed">
+            <span>{user.email}</span>
+            <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">Read-only</span>
+          </div>
         </div>
       </CardContent>
     </Card>

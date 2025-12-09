@@ -88,7 +88,7 @@ function RegisterForm({ onSuccess }: RegisterFormProps) {
                         </FormItem>
                     )}
                 />
-                {/* ... (Keep your existing fields) ... */}
+                {/* ... (Keep existing fields) ... */}
                 
                 <FormField
                     control={form.control}

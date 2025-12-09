@@ -46,7 +46,7 @@ const PricingSection = () => {
                             <div
                                 key={index}
                                 className={`relative p-4 flex flex-col rounded-3xl transition-all duration-300 h-full my-14 md:my-0 ${plan.isPro
-                                    ? 'bg-[#54BD95] text-white shadow scale-105 z-10'
+                                    ? 'bg-[#54BD95] text-white shadow scale-105 z-10 pro-bg'
                                     : 'bg-white text-black shadow-xl border border-gray-100 mt-5'
                                     }`}
                                 data-aos="zoom-in"
@@ -87,15 +87,15 @@ const PricingSection = () => {
                                     className={`p-8 flex-1 flex flex-col  rounded-b-3xl ${plan.isPro ? 'bg-white text-white m-2 rounded-2xl' : 'bg-[#F9FAFB] rounded-2xl'
                                         }`}
                                 >
-                                    <ul className="space-y-4 mb-8 flex-1">
+                                    <ul className={`space-y-4 flex-1 ${plan.title === "Pro" ? 'mb-9' : 'mb-1'} `}>
                                         {plan.features.map((feature, i) => (
-                                            <li key={i} className="px-4 flex w-full flex-col md:flex-col lg:flex-row lg:justify-start lg:items-start gap-3 items-center ">
+                                            <li key={i} className="px-4 flex w-full flex-col md:flex-col lg:flex-row lg:justify-start lg:items-start gap-3 items-center">
                                                 <div
                                                     className={`rounded-full p-1 bg-[#54BD95] text-white `}
                                                 >
                                                     <Check size={14} strokeWidth={3} />
                                                 </div>
-                                                <span className="text-center lg:text-left text-sm font-medium text-gray-600">
+                                                <span className="text-center lg:text-left text-sm lg:text-[18px] md:font-medium text-gray-600 ">
                                                     {feature}
                                                 </span>
                                             </li>
